@@ -1,0 +1,13 @@
+  <tr>
+    <td><%= vehicle.name %></td>
+    <td><%= color_field_tag 'color', vehicle.color, disabled: true %></td>
+    <td><%= link_to "Show", category_vehicle_path(vehicle.category, vehicle) %></td>
+    <td><%= link_to "Edit", edit_category_vehicle_path(vehicle.category, vehicle) %></td>
+    <td>
+      <%= link_to "Delete",
+        category_vehicle_path(vehicle.category, vehicle),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
+    </td>
+    </td>
+  </tr>

@@ -1,0 +1,16 @@
+<h1><%= @category.name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Color </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'categories/vehicle', collection: @category.vehicles %>
+  <tbody>
+</table>
+<p>
+<%= link_to "+ New " + @category.name.singularize, new_category_vehicle_url(@category) %>
+<p><%= link_to "<< Back to Categories List", categories_path %>

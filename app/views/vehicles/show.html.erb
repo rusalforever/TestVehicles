@@ -1,0 +1,10 @@
+<h3><%= @vehicle.category.name.singularize%></h3>
+<p>
+  <strong>Name:</strong>
+  <%= @vehicle.name %>
+</p>
+<p>
+  <strong>Color:</strong>
+  <%= color_field_tag 'color', @vehicle.color, disabled: true %>
+</p>
+<%= link_to "<< Back to " + @vehicle.category.name +  " List", category_path(@vehicle.category) %>

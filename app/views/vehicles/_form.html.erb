@@ -1,0 +1,41 @@
+<% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@vehicle.errors.count, "error") %> prohibited
+        this vehicle from being saved:
+      </h2>
+      <ul>
+        <% @vehicle.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+<%= form_for [@category, @vehicle], :html => {:id => 'edit_vehicle', :name => 'edit_vehicle' } do |f| %>
+    <%= f.hidden_field :category_id %>
+    <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name%>
+    </p>
+    <p>
+      <%= f.label :color %><br/>
+      <%= f.color_field :color %>
+    </p>
+    <p>
+      <%= f.button 'Submit' %>
+    </p>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#edit_vehicle").validate({
+      rules: {"vehicle[name]": {required: true, minlength: 8}}
+    });
+  });
+
+  $( "button" ).click(function() {
+    if ($("#edit_vehicle").valid()) {alert("Validation Ok")}
+    else {alert("Validation failed !!!")};
+  });
+
+</script>
